@@ -17,7 +17,7 @@ class ContactForm extends Component{
             })
             return;
         }
-        console.log(this.state.contactName)
+        
         this.props.addContactFunction(this.state.contactName);
         this.setState({contactName: '', error: null})
       }

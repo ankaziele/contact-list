@@ -6,36 +6,8 @@ import './App.css'
 class App extends Component {
 
     state = {
-        contacts: [
-            {
-                id: 1,
-                name: 'John',
-                surname: 'Smith',
-                number: '+48 601 000 909',
-                favourite: false,
-            },
-            {
-                id: 2,
-                name: 'Lisa',
-                surname: 'Monroe',
-                number: '+48 601 901 909',
-                favourite: false,
-            },
-            {
-                id: 3,
-                name: 'Theo',
-                surname: 'Taco',
-                number: '+48 601 680 909',
-                favourite: true,
-            },
-            {
-                id: 4,
-                name: 'Viggo',
-                surname: 'Lodoe',
-                number: '+48 691 680 939',
-                favourite: true
-            }
-        ]
+        contacts: JSON.parse(localStorage.getItem('tasks') || '[]'),
+        previousState: null
 
     }
 
@@ -69,6 +41,10 @@ class App extends Component {
             favourite: false
           })
         })
+      }
+
+      componentDidUpdate() {
+        localStorage.setItem('contacts', JSON.stringify(this.state.contacts))
       }
 
 
