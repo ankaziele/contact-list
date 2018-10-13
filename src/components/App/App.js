@@ -1,44 +1,78 @@
 import React, { Component } from 'react'
 import './App.css'
 
-const contacts = [
-    {
-        id: 1,
-        name: 'John',
-        number: '+48 601 000 909'
-},
-    {
-        id: 2,
-        name: 'Lisa',
-        number: '+48 601 901 909'
-},
-    {
-        id: 3,
-        name: 'Theo',
-        number: '+48 601 680 909'
-},
-    {
-        id: 4,
-        name: 'Viggo',
-        number: '+48 691 680 939' 
-}
 
-]
-class App extends Component{
+class App extends Component {
 
+    state = {
+        contacts: [
+            {
+                id: 1,
+                name: 'John',
+                surname: 'Smith',
+                number: '+48 601 000 909',
+                favourite: false,
+            },
+            {
+                id: 2,
+                name: 'Lisa',
+                surname: 'Monroe',
+                number: '+48 601 901 909',
+                favourite: false,
+            },
+            {
+                id: 3,
+                name: 'Theo',
+                surname: 'Taco',
+                number: '+48 601 680 909',
+                favourite: true,
+            },
+            {
+                id: 4,
+                name: 'Viggo',
+                surname: 'Lodoe',
+                number: '+48 691 680 939',
+                favourite: true
+            }
+        ]
+
+    }
+
+    makeContactImportant = contactId => {
+        this.setState({
+            contacts: this.state.contacts.map(
+                contact => contactId !== contact.id ? contact : {
+                    ...contact,
+                    favourite: true
+                    
+                }
+            )
+        })
+    }
+
+    
     
     render() {
 
-        return (
+                return(
+            <div>
+            <h1>Contact List</h1>
             <ul>
                 {
-
-                    contacts.map(contact =>(
-                   <li key={contact.id}>{contact.name} {contact.surname}</li>
-                    ) )
+                    this.state.contacts.map(contact => (
+                        <li key={contact.id}> 
+                        <p>
+                            {contact.favourite ? <span>&#9733;</span> :
+                                <span onClick={() =>this.makeContactImportant(contact.id)}>&#9734;</span>}
+                            {contact.name} {contact.surname}
+                        </p>
+                        <p>{contact.number}</p>
+                        </li>
+                    ))
 
                 }
-           </ul>
+            </ul>
+           </div >
         )
     }
 }
