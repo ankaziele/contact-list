@@ -60,6 +60,17 @@ class App extends Component {
         })
     }
 
+    addContact = name => {
+        this.setState({
+          previousState: this.state,
+          contacts: this.state.contacts.concat({
+            id: Date.now(),
+            name: name,
+            favourite: false
+          })
+        })
+      }
+
 
     
     
@@ -68,7 +79,7 @@ class App extends Component {
                 return(
             <div>
             <h1>Contact List</h1>
-            <ContactForm />
+            <ContactForm addContactFunction={this.addContact} />
             <ul>
                 {
                     this.state.contacts.map(contact => (
