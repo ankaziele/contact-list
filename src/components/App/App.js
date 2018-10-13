@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import ContactForm from '../ContactForm/ContactForm';
 import './App.css'
 
 
@@ -38,29 +39,27 @@ class App extends Component {
 
     }
 
-    makeContactImportant = contactId => {
+    toggleContactFavourite= contactId => {
         this.setState({
             contacts: this.state.contacts.map(
                 contact => contactId !== contact.id ? contact : {
                     ...contact,
-                    favourite: true
+                    favourite: !contact.favourite
                     
                 }
             )
         })
     }
 
-    makeContactUnimportant = contactId => {
+    removeContact = contactId => {
         this.setState({
-            contacts: this.state.contacts.map(
-                contact => contactId !== contact.id ? contact : {
-                    ...contact,
-                    favourite: false
-                    
-                }
+            contacts: this.state.contacts.filter(
+                contact => contactId !== contact.id
+
             )
         })
     }
+
 
     
     
@@ -69,17 +68,19 @@ class App extends Component {
                 return(
             <div>
             <h1>Contact List</h1>
+            <ContactForm />
             <ul>
                 {
                     this.state.contacts.map(contact => (
                         <li key={contact.id}> 
                         <p>
                             {contact.favourite ? 
-                            <span onClick={() => this.makeContactUnimportant(contact.id)}>&#9733;</span> :
-                            <span onClick={() => this.makeContactImportant(contact.id)}>&#9734;</span>}
+                            <span onClick={() => this.toggleContactFavourite(contact.id)}>&#9733;</span> :
+                            <span onClick={() => this.toggleContactFavourite(contact.id)}>&#9734;</span>}
                             {contact.name} {contact.surname}
                         </p>
                         <p>{contact.number}</p>
+                        <button onClick={() => this.removeContact(contact.id)}>Remove Contact</button>
                         </li>
                     ))
 
