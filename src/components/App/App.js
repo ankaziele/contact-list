@@ -6,7 +6,7 @@ import './App.css'
 class App extends Component {
 
     state = {
-        contacts: JSON.parse(localStorage.getItem('tasks') || '[]'),
+        contacts: JSON.parse(localStorage.getItem('contacts') || '[]'),
         previousState: null
 
     }
