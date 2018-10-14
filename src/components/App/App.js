@@ -32,12 +32,14 @@ class App extends Component {
         })
     }
 
-    addContact = name => {
+    addContact = (name, surname, number) => {
         this.setState({
           previousState: this.state,
           contacts: this.state.contacts.concat({
             id: Date.now(),
             name: name,
+            surname: surname,
+            phoneNumber: number,
             favourite: false
           })
         })
@@ -64,7 +66,7 @@ class App extends Component {
                             {contact.favourite ? 
                             <span onClick={() => this.toggleContactFavourite(contact.id)}>&#9733;</span> :
                             <span onClick={() => this.toggleContactFavourite(contact.id)}>&#9734;</span>}
-                            {contact.name} {contact.surname}
+                            {contact.name} {contact.surname} {contact.phoneNumber}
                         </p>
                         <p>{contact.number}</p>
                         <button onClick={() => this.removeContact(contact.id)}>Remove Contact</button>
