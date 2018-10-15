@@ -84,16 +84,16 @@ class ContactForm extends Component{
             {
               this.state.error && <p>{this.state.error.message}</p>
             }
-            <input value={this.state.contactName} onChange={this.handleNameChange} />
+            <input placeholder="Name" value={this.state.contactName} onChange={this.handleNameChange} />
             {this.state.errors.contactName && this.state.errors.contactName.message}
          
-            <input value={this.state.contactSurname} onChange={this.handleSurnameChange} />
+            <input placeholder="Surname" value={this.state.contactSurname} onChange={this.handleSurnameChange} />
             {this.state.errors.contactSurname && this.state.errors.contactSurname.message}
       
-            <input value={this.state.contactNumber} onChange={this.handleNumberChange} />
+            <input placeholder="Phone number" value={this.state.contactNumber} onChange={this.handleNumberChange} />
             {this.state.errors.contactNumber && this.state.errors.contactNumber.message}
     
-            <button>Add</button>
+            <button className="btn btn-primary sm-1">Add Contact</button>
           </form>
         )
     }

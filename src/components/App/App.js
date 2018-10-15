@@ -64,12 +64,12 @@ class App extends Component {
                         <li key={contact.id}> 
                         <p>
                             {contact.favourite ? 
-                            <span onClick={() => this.toggleContactFavourite(contact.id)}>&#9733;</span> :
-                            <span onClick={() => this.toggleContactFavourite(contact.id)}>&#9734;</span>}
+                            <span onClick={() => this.toggleContactFavourite(contact.id)}>&#9733;  </span> :
+                            <span onClick={() => this.toggleContactFavourite(contact.id)}>&#9734;  </span>}
                             {contact.name} {contact.surname} {contact.phoneNumber}
                         </p>
                         <p>{contact.number}</p>
-                        <button onClick={() => this.removeContact(contact.id)}>Remove Contact</button>
+                        <button className="btn btn-danger xs1" onClick={() => this.removeContact(contact.id)}>Remove</button>
                         </li>
                     ))
 

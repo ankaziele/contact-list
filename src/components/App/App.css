@@ -1,8 +1,26 @@
 body{
     background-color: aqua;
+    font-size: 30px;
 }
-.span{
-    background-color: yellow;
-    color: yellow;
+
+
+form{
+    margin-left: 50px;
+}
+
+p{
+    background: #008080;
+    color: white;
+    font-size: 30px;
     
+
 }
+
+ul{
+    margin: 15px;
+}
+
+h1{
+    color: #008080;
+}
+

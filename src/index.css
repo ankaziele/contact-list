@@ -6,9 +6,28 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 30px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+span{
+  color: yellow;
+}
+
+input{
+  background: #bfe4e4;
+}
+
+h1{
+  color: white;
+  background: #008080;
+  margin-bottom: 10px;
+}
+
+form{
+  margin: 10px;
 }
