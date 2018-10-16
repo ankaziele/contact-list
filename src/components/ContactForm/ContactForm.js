@@ -62,20 +62,20 @@ class ContactForm extends Component{
         this.setState(initialState)
       }
 
-      handleNameChange = event => {
+      handleChange = event => {
           this.setState({
-              contactName: event.target.value})
+              [event.target.name]: event.target.value})
       }
 
-      handleSurnameChange = event => {
-        this.setState({
-            contactSurname: event.target.value})
-    }
+    //   handleSurnameChange = event => {
+    //     this.setState({
+    //         contactSurname: event.target.value})
+    // }
 
-    handleNumberChange = event => {
-        this.setState({
-            contactNumber: event.target.value})
-    }
+    // handleNumberChange = event => {
+    //     this.setState({
+    //         contactNumber: event.target.value})
+    // }
 
       
     render(){
@@ -84,13 +84,22 @@ class ContactForm extends Component{
             {
               this.state.error && <p>{this.state.error.message}</p>
             }
-            <input placeholder="Name" value={this.state.contactName} onChange={this.handleNameChange} />
+            <input placeholder="Name" 
+            value={this.state.contactName} 
+            name="contactName"
+            onChange={this.handleChange} />
             {this.state.errors.contactName && this.state.errors.contactName.message}
          
-            <input placeholder="Surname" value={this.state.contactSurname} onChange={this.handleSurnameChange} />
+            <input placeholder="Surname" 
+            value={this.state.contactSurname} 
+            name="contactSurname"
+            onChange={this.handleChange} />
             {this.state.errors.contactSurname && this.state.errors.contactSurname.message}
       
-            <input placeholder="Phone number" value={this.state.contactNumber} onChange={this.handleNumberChange} />
+            <input placeholder="Phone number" 
+            value={this.state.contactNumber} 
+            name="contactNumber"
+            onChange={this.handleChange} />
             {this.state.errors.contactNumber && this.state.errors.contactNumber.message}
     
             <button className="btn btn-primary sm-1">Add Contact</button>
